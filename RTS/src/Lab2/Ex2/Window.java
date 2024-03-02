@@ -31,7 +31,7 @@ public class Window extends JFrame implements Observer {
 
     @Override
     public void update(Observable o, Object arg) {
-        System.out.println("Thread id " + ((InfoThread)arg).getId() + " value " + ((InfoThread)arg).getC() + " changed");
-        bars.get(((InfoThread)arg).getId()).setValue(((InfoThread)arg).getC());
+        System.out.println("Thread id " + ((Fir)arg).getId() + " value " + ((Fir)arg).getC() + " changed");
+        bars.get(((Fir)arg).getId()).setValue(((Fir)arg).getC());
     }
 }
