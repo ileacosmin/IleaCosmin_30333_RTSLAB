@@ -1,0 +1,30 @@
+@startuml
+
+actor User
+participant MainFrame
+participant ShapePanel
+participant ShapeMover
+participant Shape
+
+User -> MainFrame: start()
+activate MainFrame
+MainFrame -> ShapePanel: start()
+activate ShapePanel
+ShapePanel -> ShapeMover: create ShapeMover
+activate ShapeMover
+ShapeMover -> Shape: move()
+activate Shape
+Shape -> ShapePanel: draw shape
+deactivate Shape
+ShapeMover -> ShapePanel: check if shape is out of bounds
+activate ShapePanel
+ShapePanel -> Shape: reset()
+activate Shape
+Shape -> ShapePanel: shape reset
+deactivate Shape
+deactivate ShapePanel
+ShapeMover -> ShapePanel: sleep()
+deactivate ShapeMover
+deactivate MainFrame
+
+@enduml

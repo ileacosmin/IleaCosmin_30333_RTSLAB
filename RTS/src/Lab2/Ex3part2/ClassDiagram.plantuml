@@ -1,0 +1,24 @@
+@startuml
+
+class MainFrame {
+    - shapePanel: ShapePanel
+}
+
+class ShapePanel {
+    - NUM_SHAPES: int
+    - MAX_SPEED: int
+    - MIN_SPEED: int
+    - shapeThreads: Thread[]
+    - shapes: Shape[]
+}
+
+class Shape {
+    - x: int
+    - y: int
+    - speed: int
+}
+
+MainFrame --> ShapePanel
+ShapePanel --> Shape
+
+@enduml
