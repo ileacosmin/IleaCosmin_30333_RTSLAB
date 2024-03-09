@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement>Lab2.Ex2</OriginalElement>
+  <nodes>
+    <node x="-116.36877076411963" y="222.0">Lab2.Ex2.Fir</node>
+    <node x="-62.0" y="511.0">Lab2.Ex2.Main</node>
+    <node x="-66.0" y="-14.0">Lab2.Ex2.Window</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="Lab2.Ex2.Main" target="Lab2.Ex2.Window" relationship="CREATE">
+      <point x="0.0" y="-44.0" />
+      <point x="20.0" y="475.0" />
+      <point x="140.0" y="475.0" />
+      <point x="140.0" y="195.0" />
+      <point x="123.0" y="195.0" />
+      <point x="63.0" y="69.0" />
+    </edge>
+    <edge source="Lab2.Ex2.Fir" target="Lab2.Ex2.Window" relationship="TO_ONE">
+      <point x="0.0" y="-93.0" />
+      <point x="-28.36877076411963" y="195.0" />
+      <point x="-3.0" y="195.0" />
+      <point x="-63.0" y="69.0" />
+    </edge>
+    <edge source="Lab2.Ex2.Main" target="Lab2.Ex2.Fir" relationship="CREATE">
+      <point x="0.0" y="-44.0" />
+      <point x="20.0" y="459.5" />
+      <point x="-28.36877076411963" y="459.5" />
+      <point x="0.0" y="93.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Compact" zoom="1.4265402843601895" showDependencies="true" x="69.0" y="302.5" />
+  <SelectedNodes>
+    <node>Lab2.Ex2.Fir</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Constructors</Category>
+    <Category>Fields</Category>
+    <Category>Inner Classes</Category>
+    <Category>Methods</Category>
+    <Category>Properties</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+

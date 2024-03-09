@@ -1,0 +1,22 @@
+@startuml
+participant Main
+participant Fir
+participant Window
+
+Main -> Window: Create Window
+activate Window
+Main -> Fir: Create Fir objects
+activate Fir
+Fir -> Window: Add Window as observer
+activate Window
+Fir -> Fir: Run loop
+activate Fir
+Fir -> Fir: Process workload
+deactivate Fir
+Fir -> Fir: Notify observers
+Window -> Window: Update progress bars
+deactivate Window
+Fir -> Fir: Continue loop until done
+deactivate Fir
+deactivate Main
+@enduml
