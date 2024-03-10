@@ -1,7 +1,6 @@
-package Lab2.Ex3part2;
+package Lab2.Ex3;
 import javax.swing.*;
 
-import javax.swing.*;
 import java.awt.*;
 import java.util.Random;
 
@@ -76,11 +75,10 @@ class ShapePanel extends JPanel {
 
     private class ShapeMover implements Runnable {
         private Shape shape;
-        private int n;
 
         public ShapeMover(Shape shape) {
             this.shape = shape;
-            this.n=0;
+
         }
 
         @Override
@@ -90,7 +88,7 @@ class ShapePanel extends JPanel {
                     shape.move();
                     if (shape.isOutOfBounds(getHeight())) {
                         shape.reset(getHeight());
-                        n++;
+
                         // Stop the thread for this shape
                         Thread.currentThread().interrupt();
                         // Create a new thread for this shape
@@ -99,13 +97,11 @@ class ShapePanel extends JPanel {
                         // Exit the current thread
                         return;
                     }
-                    if(n>3)
-                        stop();
                     repaint();
-                    Thread.sleep(5); // Adjust this to control speed
+                    Thread.sleep(10); // Adjust this to control speed
                 }
             } catch (InterruptedException e) {
-                // Thread interrupted, stopping movement
+//                 Thread interrupted, stopping movement
             }
         }
     }

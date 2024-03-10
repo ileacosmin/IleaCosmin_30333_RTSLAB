@@ -3,7 +3,7 @@
 start
 :Open MainFrame;
 :Create ShapePanel;
-while (Shapes not exited border) is (true)
+while (Shapes in the border) is (true)
     :Move Shapes;
 endwhile (false)
 :Stop Threads;

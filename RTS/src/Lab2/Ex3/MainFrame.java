@@ -1,9 +1,5 @@
-package Lab2.Ex3part2;
+package Lab2.Ex3;
 import javax.swing.*;
-
-import javax.swing.*;
-import java.awt.*;
-import java.util.Random;
 
 public class MainFrame extends JFrame {
     private ShapePanel shapePanel;
