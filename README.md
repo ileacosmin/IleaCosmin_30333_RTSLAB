@@ -1,3 +1,4 @@
 ## Markings
-- Lab 1
-- Lab 2 (completed, needs to be marked in week 3)
+- Lab 1 marked
+- Lab 2 marked + Optional App3
+- 
