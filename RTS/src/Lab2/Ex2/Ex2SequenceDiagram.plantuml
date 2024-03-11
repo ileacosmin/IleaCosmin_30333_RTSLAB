@@ -14,9 +14,11 @@ activate Fir
 Fir -> Fir: Process workload
 deactivate Fir
 Fir -> Fir: Notify observers
-Window -> Window: Update progress bars
 deactivate Window
-Fir -> Fir: Continue loop until done
+Fir -> Window: SetChanged
+Fir -> Window: NotifyObservers
+Window -> Window: Update
+
 deactivate Fir
 deactivate Main
 @enduml

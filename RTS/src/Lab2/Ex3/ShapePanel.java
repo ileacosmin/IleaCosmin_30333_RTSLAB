@@ -9,6 +9,8 @@ class ShapePanel extends JPanel {
     private static final int NUM_SHAPES = 3;
     private static final int MAX_SPEED = 7;
     private static final int MIN_SPEED = 3;
+    boolean b=true;
+
 
     private Thread[] shapeThreads;
     private Shape[] shapes;
@@ -32,7 +34,7 @@ class ShapePanel extends JPanel {
         }
     }
     public void stop() {
-        System.exit(0);
+        b=false;
 
     }
 
@@ -76,6 +78,7 @@ class ShapePanel extends JPanel {
     private class ShapeMover implements Runnable {
         private Shape shape;
 
+
         public ShapeMover(Shape shape) {
             this.shape = shape;
 
@@ -83,25 +86,28 @@ class ShapePanel extends JPanel {
 
         @Override
         public void run() {
-            try {
-                while (!Thread.interrupted()) {
-                    shape.move();
-                    if (shape.isOutOfBounds(getHeight())) {
-                        shape.reset(getHeight());
 
-                        // Stop the thread for this shape
-                        Thread.currentThread().interrupt();
-                        // Create a new thread for this shape
-                        Thread newThread = new Thread(new ShapeMover(shape));
-                        newThread.start();
-                        // Exit the current thread
-                        return;
+            while (b) {
+                try {
+                    while (!Thread.interrupted()) {
+                        shape.move();
+                        if (shape.isOutOfBounds(getHeight())) {
+                            // Stop the thread for this shape
+                            stop();
+
+                            // Create a new thread for this shape
+                            Thread newThread = new Thread(new ShapeMover(shape));
+                            newThread.start();
+                            // Exit the current thread
+                            return;
+                        }
+                        repaint();
+                        Thread.sleep(10); // Adjust this to control speed
                     }
-                    repaint();
-                    Thread.sleep(10); // Adjust this to control speed
-                }
-            } catch (InterruptedException e) {
+                } catch (InterruptedException e) {
+
 //                 Thread interrupted, stopping movement
+                }
             }
         }
     }
