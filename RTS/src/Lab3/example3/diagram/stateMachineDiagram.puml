@@ -1,0 +1,13 @@
+@startuml
+[*] --> Initial
+
+state Initial {
+    [*] --> Ready
+    Ready --> Running : Thread start
+    Running --> Waiting : Thread joins
+    Waiting --> Running : Joined thread finishes
+    Running --> Terminated : Thread operation terminates
+    Terminated --> [*]
+}
+
+@enduml
