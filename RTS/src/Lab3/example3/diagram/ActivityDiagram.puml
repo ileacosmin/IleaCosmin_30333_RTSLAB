@@ -1,0 +1,12 @@
+@startuml
+
+start
+:Create w1 with limit 50000;
+:Create w2 with limit 20000 and w1 as dependency;
+:Start w1;
+:Start w2;
+:Join w2;
+:Print sumOfDivisors;
+stop
+
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+
+[*] --> Thread_Running
+
+Thread_Running --> Thread_Sleeping : Thread.sleep(250)
+Thread_Sleeping --> Thread_Running : Wake up
+
+Thread_Running --> Thread_Stopping : stopThread() called
+Thread_Stopping --> Thread_End : Thread completed
+Thread_Stopping --> Thread_Running : Resume Execution
+
+@enduml
