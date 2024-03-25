@@ -23,16 +23,21 @@ public class FileService {
             e.printStackTrace();
         }
     }
-    public synchronized void write(String msg){
-        Date date = new Date(System.currentTimeMillis());
-        out.println("Date: " + date);
-        out.println("Message: " + msg); out.flush();
+    public void write(String msg) {
+
+            Date date = new Date(System.currentTimeMillis());
+            out.println("Date: " + date);
+            out.println("Message: " + msg);
+            out.flush();
+
     }
-    public synchronized String read() throws IOException{
-        String iterator, last="no message to read";
-        while((iterator = in.readLine()) != null){
-            last= new Date(System.currentTimeMillis()) + " - " + iterator;
-        }
-        return last;
+
+    public String read() throws IOException {
+
+            String iterator, last = "no message to read";
+            while ((iterator = in.readLine()) != null) {
+                last = new Date(System.currentTimeMillis()) + " - " + iterator;
+            }
+            return last;
     }
 }

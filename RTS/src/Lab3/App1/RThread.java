@@ -13,23 +13,21 @@ public class RThread extends Thread{
     public void run(){
 
         while (!Main.isStopThreads()){
+            synchronized (service) {
+                try {
 
-            try {
+                    String readMsg = service.read();
 
-                String readMsg = service.read();
+                    System.out.println(readMsg);
 
-                System.out.println(readMsg);
+                    Thread.sleep(3000);
 
-                Thread.sleep(3000);
+                } catch (Exception e) {
+                    e.printStackTrace();
 
-            } catch (Exception e) {
-
-                e.printStackTrace();
-
+                }
             }
-
         }
-
     }
 
 }

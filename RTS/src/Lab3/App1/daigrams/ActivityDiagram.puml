@@ -1,0 +1,21 @@
+@startuml
+
+start
+:Main;
+:Create FileService;
+:Create RThread;
+:Create WThread;
+
+if (decision) then (Start WThread)
+    :WThread operations;
+    if(Main.isStopThreads() == false) then (yes)
+        :Continue;
+        else (no)
+        stop
+    endif
+else (Start RThread)
+:FileService operations;
+stop
+endif
+
+@enduml

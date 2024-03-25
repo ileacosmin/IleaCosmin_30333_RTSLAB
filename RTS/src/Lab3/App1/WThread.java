@@ -13,22 +13,22 @@ public class WThread extends Thread{
     public void run(){
 
         while(!Main.isStopThreads()){
+            synchronized (service) {
+                String msg =
 
-            String msg=
+                        String.valueOf(Math.round(Math.random() * 100));
 
-                    String.valueOf(Math.round(Math.random()*100));
-
-            service.write(msg);
-
-            try {
-
-                Thread.sleep(2000);
-
-            } catch (InterruptedException e) {
-
-                e.printStackTrace();
-
+                service.write(msg);
             }
+                try {
+
+                    Thread.sleep(2000);
+
+                } catch (InterruptedException e) {
+
+                    e.printStackTrace();
+
+                }
 
         }
 

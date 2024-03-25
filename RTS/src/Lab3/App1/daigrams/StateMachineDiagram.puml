@@ -1,0 +1,26 @@
+@startuml
+
+[*] --> Main_Running
+
+Main_Running --> Main_Stopping : Main.stopThreads = true
+Main_Stopping --> Main_Running : Main.stopThreads = false
+
+Main_Running --> RThread_Running : Start RThread
+Main_Running --> WThread_Running : Start WThread
+
+RThread_Running --> RThread_Sleeping : RThread sleeps
+RThread_Sleeping --> RThread_Running : RThread wakes up
+
+WThread_Running --> WThread_Sleeping : WThread sleeps
+WThread_Sleeping --> WThread_Running : WThread wakes up
+
+Main_Stopping --> RThread_Stopping : Stop Threads
+Main_Stopping --> WThread_Stopping : Stop Threads
+
+RThread_Stopping --> RThread_Terminated : RThread completes
+WThread_Stopping --> WThread_Terminated : WThread completes
+
+RThread_Terminated --> [*] : RThread Termination
+WThread_Terminated --> [*] : WThread Termination
+
+@enduml
