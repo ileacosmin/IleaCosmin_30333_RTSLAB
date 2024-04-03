@@ -4,6 +4,7 @@ class JoinTestThread extends Thread {
     private Thread t;
 
     private int limit;
+    static int divisorSum ;
 
     JoinTestThread(String n, Thread t, int limit) {
         this.setName(n);
@@ -11,17 +12,19 @@ class JoinTestThread extends Thread {
         this.limit = limit;
     }
 
+    public  void findDivisorSum(){
+    for (int i = 1; i <= this.limit; i++) {
+        if (this.limit % i == 0)
+            divisorSum += i;
+    }
+}
     public void run() {
         System.out.println(this.getName() + " has entered the run() method");
         try {
             if (t != null)
                 t.join();
 
-            int divisorSum = 0;
-            for (int i = 1; i <= limit; i++) {
-                if (limit % i == 0)
-                    divisorSum += i;
-            }
+            findDivisorSum();
 
             Main.setSumOfDivisors(divisorSum);
 
