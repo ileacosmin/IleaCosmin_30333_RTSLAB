@@ -5,6 +5,7 @@ participant "ThreadEx" as ThreadEx
 participant "fir1: ThreadEx" as fir1
 participant "fir2: ThreadEx" as fir2
 participant "fir3: ThreadEx" as fir3
+participant "Monitor" as Monitor
 participant "System" as System
 
 ThreadGroupDemo -> ThreadEx: new ThreadEx(tg, "ThreadEx #1")
@@ -24,43 +25,47 @@ deactivate ThreadEx
 
 ThreadGroupDemo -> fir1: fir1.start()
 activate fir1
-fir1 --> System: println(Thread.currentThread().getName() + " ON.")
+fir1 --> Monitor: println(Thread.currentThread().getName() + " ON.")
+Monitor --> System
 deactivate fir1
 
 ThreadGroupDemo -> fir2: fir2.start()
 activate fir2
-fir2 --> System: println(Thread.currentThread().getName() + " ON.")
+fir2 --> Monitor: println(Thread.currentThread().getName() + " ON.")
+Monitor --> System
 deactivate fir2
 
 ThreadGroupDemo -> fir3: fir3.start()
 activate fir3
-fir3 --> System: println(Thread.currentThread().getName() + " ON.")
+fir3 --> Monitor: println(Thread.currentThread().getName() + " ON.")
+Monitor --> System
 deactivate fir3
 
 ThreadGroupDemo -> System: Thread.sleep(1000)
 System --> ThreadGroupDemo: Slept for 1000ms
 
-ThreadGroupDemo -> System: println(tg.activeCount() + " Thread in group.")
-System --> ThreadGroupDemo: Prints active thread count
+ThreadGroupDemo -> Monitor: println(tg.activeCount() + " Thread in group.")
+Monitor --> System: Prints active thread count
 
 ThreadGroupDemo -> System: tg.enumerate(thrds)
 System --> ThreadGroupDemo: Enumerates threads
 
 loop for each thread
-    ThreadGroupDemo -> System: println(t.getName())
-    System --> ThreadGroupDemo: Prints thread name
+    ThreadGroupDemo -> Monitor: println(t.getName())
+    Monitor --> System: Prints thread name
 end
 
 ThreadGroupDemo -> fir1: fir1.stopThread()
 activate fir1
-fir1 --> System: stop = true
+fir1 --> Monitor: stop = true
+Monitor --> System
 deactivate fir1
 
 ThreadGroupDemo -> System: Thread.sleep(1000)
 System --> ThreadGroupDemo: Slept for 1000ms
 
-ThreadGroupDemo -> System: println(tg.activeCount() + " Thread in group.")
-System --> ThreadGroupDemo: Prints active thread count
+ThreadGroupDemo -> Monitor: println(tg.activeCount() + " Thread in group.")
+Monitor --> System: Prints active thread count
 
 ThreadGroupDemo -> System: tg.interrupt()
 System --> ThreadGroupDemo: Interrupts thread group

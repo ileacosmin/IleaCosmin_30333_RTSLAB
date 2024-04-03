@@ -1,0 +1,28 @@
+@startuml
+interface Runnable {
+  +run() : void
+}
+
+
+
+class ReadThread {
+  -pipe : PipedInputStream
+  +conect(pipe : PipedOutputStream) : void
+  +run() : void
+}
+ReadThread *.up. Runnable
+
+class WriteThread {
+  -pipe : PipedOutputStream
+  +getPipe() : PipedOutputStream
+  +run() : void
+}
+WriteThread *.up. Runnable
+
+Main --> ReadThread : creates >
+Main --> WriteThread : creates >
+
+class Main {
+  +main(args : String[]) : void
+}
+@enduml
