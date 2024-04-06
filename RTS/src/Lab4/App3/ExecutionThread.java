@@ -7,11 +7,10 @@ public class ExecutionThread extends Thread {
     int sleep_time, activity_min, activity_max;
 
     public ExecutionThread(Integer monitor, int activity_min, int activity_max, int sleep_time) {
-
         this.monitor = monitor;
-
         this.activity_min = activity_min;
         this.activity_max = activity_max;
+        this.sleep_time = sleep_time;
     }
     public void run() {
         while(true) {
