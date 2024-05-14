@@ -1,0 +1,46 @@
+@startuml
+
+Main -> Fir1 : start()
+activate Fir1
+Main -> Fir2 : start()
+activate Fir2
+
+loop while (true)
+    Fir1 -> Fir1 : Enter state 1
+    Fir1 -> Fir1 : sleep 1
+    activate Fir1
+    deactivate Fir1
+    Fir1 -> Fir1 : Enter state 2
+    Fir1 -> Semaphore : acquire permits
+    activate Fir1
+    deactivate Fir1
+    Fir1 -> Fir1 : Enter state 3
+    Fir1 -> Fir1 : do work
+    activate Fir1
+    deactivate Fir1
+    Semaphore --> Fir1 : release permits
+    activate Fir1
+    deactivate Fir1
+
+end
+
+loop while (true)
+    Fir2 -> Fir2 : Enter state 1
+    Fir2 -> Fir2 : sleep 1
+    activate Fir2
+    deactivate Fir2
+    Fir2 -> Fir2 : Enter state 2
+    Fir2 -> Semaphore : acquire permits
+    activate Fir2
+    deactivate Fir2
+    Fir2 -> Fir2 : Enter state 3
+    Fir2 -> Fir2 : do work
+    activate Fir2
+    deactivate Fir2
+    Semaphore --> Fir2 : release permits
+    activate Fir2
+    deactivate Fir2
+
+end
+
+@enduml

@@ -1,0 +1,27 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+class Fir
+Fir : ~name : int
+Fir : ~delay : int
+Fir : ~k : int
+Fir : ~permit : int
+Fir : ~s : Semaphore
+Fir : +Fir()
+Fir : +run() : void
+
+class Thread
+
+class Main
+Main : +main() : static void
+
+class Semaphore
+class InterruptedException
+
+Fir -|> Thread
+Fir -o Semaphore
+Fir -> InterruptedException
+
+Main -* Fir
+
+@enduml
