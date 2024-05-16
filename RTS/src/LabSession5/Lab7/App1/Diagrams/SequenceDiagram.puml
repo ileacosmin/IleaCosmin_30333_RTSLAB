@@ -1,0 +1,54 @@
+@startuml
+loop forever
+
+    activate Thread1
+    Thread1 -> Thread1 : State1
+    activate Thread1
+    deactivate Thread1
+    Thread1 -> p9 : Acquire
+    activate p9
+    Thread1 -> Thread1 : State2
+    activate Thread1
+    deactivate Thread1
+    Thread1 -> p10 : Acquire
+    activate p10
+    Thread1 -> Thread1 : State3
+    Thread1 -> Thread1 : sleep for 4
+    activate Thread1
+    deactivate Thread1
+    Thread1 <-- p9 : Release
+    deactivate p9
+    Thread1 <-- p10 : Release
+    deactivate p10
+    Thread1 -> Thread1 : State4
+    Thread1 -> Thread1 : Wait for Thread2
+    activate Thread1
+    deactivate Thread1
+
+    activate Thread2
+    Thread2 -> Thread2 : State1
+    activate Thread2
+    deactivate Thread2
+    Thread2 -> p10 : Acquire
+    activate p10
+    Thread2 -> Thread2 :State2
+    activate Thread2
+    deactivate Thread2
+    Thread2 -> p9 : Acquire
+    activate p9
+     Thread2 -> Thread2 :State3
+    Thread2 -> Thread2 : sleep for 5
+    activate Thread2
+    deactivate Thread2
+    Thread2 <-- p10 : Release
+    deactivate p10
+    Thread2 <-- p9 : Release
+    deactivate p9
+    Thread2 -> Thread2 : State4
+
+    Thread2 -> Thread2 : Wait for Thread1
+    activate Thread2
+    deactivate Thread2
+
+end loop
+@enduml

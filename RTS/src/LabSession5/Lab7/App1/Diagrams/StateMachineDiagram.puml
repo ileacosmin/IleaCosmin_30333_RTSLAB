@@ -1,0 +1,26 @@
+@startuml
+[*] -> States
+state States{
+
+    State0-> State11
+    State0-> State21
+    State11: Activity 3-6
+    State11 -> State12 : Aqire p10
+    State12 -> State13 : Activity 5-7
+    State13 -> State14 : Aqire p9
+    State14 -> State15 : Sleep 5, releasse p9,p10
+    State15-> State6
+    State15-> State0
+
+    State21: Activity 2-4
+    State21 -> State22 : Aqire p9
+    State22 -> State23 : Activity 4-6
+    State23 -> State24 : Aqire p10
+    State24 -> State25 : Sleep 4, releasse p9,p10
+    State25-> State6
+    State25-> State0
+
+}
+
+States -> [*]
+@enduml
