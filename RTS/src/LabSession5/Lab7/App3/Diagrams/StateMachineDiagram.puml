@@ -1,0 +1,26 @@
+@startuml
+
+[*] -> Running
+
+state Running{
+
+    [*] -> State11
+    State11 -> State12 : Sleep  7
+    State12 : Activity 2-3
+    State12 -> State13 : Notify Thread 2 and 3
+    --
+
+    [*] -> State21
+    State21 -> State22 : Wait for notify on monitor 1
+    State22 : Activity 3-5
+    --
+    [*] -> State31
+    State31 -> State32 : Wait for notify on monitor 2
+    State32 : Activity 4-6
+}
+
+Running -> [*]
+Running -> [*]
+Running -> [*]
+
+@enduml

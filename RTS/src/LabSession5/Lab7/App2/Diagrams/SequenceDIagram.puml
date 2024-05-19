@@ -1,0 +1,50 @@
+@startuml
+
+loop forever
+
+
+    Thread1 -> Monitor1: acquire
+    activate Thread1
+    activate Monitor1
+    Thread1 -> Thread1: Activity 2-4
+    activate Thread1
+    deactivate Thread1
+    Thread1 -> Thread1: Sleep 4
+    activate Thread1
+    deactivate Thread1
+    Thread1 <-- Monitor1: release
+    deactivate Monitor1
+    deactivate Thread1
+
+    Thread2 -> Monitor1: acquire
+    activate Thread2
+    activate Monitor1
+    Thread2 -> Monitor2: acquire
+    activate Monitor2
+    Thread2 -> Thread2: Activity 3-6
+    activate Thread2
+    deactivate Thread2
+    Thread2 -> Thread2: Sleep 3
+    activate Thread2
+    deactivate Thread2
+    Thread2 <-- Monitor1 : release
+    deactivate Monitor1
+    Thread2 <-- Monitor2 : release
+    deactivate Monitor2
+    deactivate Thread2
+
+    Thread3 -> Monitor2: acquire
+    activate Thread3
+    activate Monitor2
+    Thread3 -> Thread3: Activity 2-5
+    activate Thread3
+    deactivate Thread3
+    Thread3 -> Thread3: Sleep 5
+    activate Thread3
+    deactivate Thread3
+    Thread3 <-- Monitor2: release
+    deactivate Monitor2
+    deactivate Thread3
+end loop
+
+@enduml

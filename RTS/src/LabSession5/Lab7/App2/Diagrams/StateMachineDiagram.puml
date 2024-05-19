@@ -1,0 +1,32 @@
+@startuml
+
+[*] -> Running
+
+state Running{
+
+    [*] -> State0
+
+    State0 -> State1
+    State1 -> State2 : acquire semaphore 1
+    State2 : Activity 2-4
+    State2 -> State3 : Sleep  4 , Release semaphore1
+    State3 -> State10
+
+    State0 -> State4
+    State4 -> State5 : acquire semaphore 1 and 2
+    State5 :Activity 3-6
+    State5 -> State6 : Sleep  3 , Release semaphore1 and 2
+    State6 -> State10
+
+    State0 -> State7
+    State7 -> State8 : acquire semaphore 2
+    State8 : Activity 2-5
+    State8 -> State9 : Sleep  5 , Release semaphore1
+    State9 -> State10
+
+    State10 -> State0
+}
+
+Running -> [*]
+
+@enduml
