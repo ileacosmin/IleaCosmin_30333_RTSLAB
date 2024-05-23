@@ -1,10 +1,14 @@
 @startuml
 
+activate Main
+Main -> latch : init()
+activate latch
 loop forever
 
-
-    Thread1 -> Monitor1: acquire
+    == Thread 1 ==
+    Main -> Thread1 : start()
     activate Thread1
+    Thread1 -> Monitor1: acquire
     activate Monitor1
     Thread1 -> Thread1: Activity 2-4
     activate Thread1
@@ -16,8 +20,10 @@ loop forever
     deactivate Monitor1
     deactivate Thread1
 
-    Thread2 -> Monitor1: acquire
+    == Thread 2 ==
+    Main -> Thread2 : start()
     activate Thread2
+    Thread2 -> Monitor1: acquire
     activate Monitor1
     Thread2 -> Monitor2: acquire
     activate Monitor2
@@ -27,14 +33,16 @@ loop forever
     Thread2 -> Thread2: Sleep 3
     activate Thread2
     deactivate Thread2
-    Thread2 <-- Monitor1 : release
+    Thread2 <-- Monitor1: release
     deactivate Monitor1
-    Thread2 <-- Monitor2 : release
+    Thread2 <-- Monitor2: release
     deactivate Monitor2
     deactivate Thread2
 
-    Thread3 -> Monitor2: acquire
+    == Thread 3 ==
+    Main -> Thread3 : start()
     activate Thread3
+    Thread3 -> Monitor2: acquire
     activate Monitor2
     Thread3 -> Thread3: Activity 2-5
     activate Thread3
@@ -45,6 +53,9 @@ loop forever
     Thread3 <-- Monitor2: release
     deactivate Monitor2
     deactivate Thread3
+
+    latch -> Main : await()
+    Main -> latch : init()
 end loop
 
 @enduml

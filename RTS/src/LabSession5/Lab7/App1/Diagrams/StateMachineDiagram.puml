@@ -1,26 +1,37 @@
 @startuml
-[*] -> States
-state States{
 
-    State0-> State11
-    State0-> State21
-    State11: Activity 3-6
-    State11 -> State12 : Aqire p10
-    State12 -> State13 : Activity 5-7
-    State13 -> State14 : Aqire p9
-    State14 -> State15 : Sleep 5, releasse p9,p10
-    State15-> State6
-    State15-> State0
+[*] -> Running
+state Running{
 
-    State21: Activity 2-4
-    State21 -> State22 : Aqire p9
-    State22 -> State23 : Activity 4-6
-    State23 -> State24 : Aqire p10
-    State24 -> State25 : Sleep 4, releasse p9,p10
-    State25-> State6
-    State25-> State0
+    state Fork1 <<fork>>
+    [*] -> StartState
+    StartState -> Fork1
+    Fork1 -> State1
+    State1 : Do work 4-6
+    Fork -> State2
+    State2 : Do work 5-7
+    State1 -> State3 : Acquire monitor1
+    State2 -> State4 : Acquire monitor2
+    State3 : Do work 4-6
+    State4 : Do work 5-7
 
+    state c1 <<condition>>
+    state c2 <<condition>>
+    State3 -> c1
+    State4 -> c2
+    c1 -> State5 : Monitor2 free
+    State5 -> State7 : Sleep 4
+    c1 -> State7 : Monitor2 unavailable
+
+    c2 -> State6 : Monitor1 free
+    State6 -> State8 : Sleep 5
+    c2 -> State8 : Monitor1 unavailable
+    state Fork2 <<fork>>
+    State7 -> Fork2
+    State8 -> Fork2
+    Fork2 -> StartState
 }
 
-States -> [*]
+Running -> [*]
+
 @enduml
