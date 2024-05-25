@@ -34,5 +34,14 @@ public class ExecutionThread2 extends Thread {
 
         System.out.println(this.getName() + " - STATE 3");
         latch.countDown();
+
+        try
+        {
+            latch.await();
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
     }
 }

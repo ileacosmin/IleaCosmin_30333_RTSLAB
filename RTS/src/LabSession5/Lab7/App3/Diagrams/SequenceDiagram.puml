@@ -15,6 +15,8 @@ activate Monitor1
 Thread1 -> Monitor2: Notify
 activate Monitor2
 
+Thread1 -> latch: countDown
+
 
 Thread2 -> Monitor1: Acquire
 Thread2 -> Thread2: Activity 3-5
@@ -23,11 +25,13 @@ deactivate Thread2
 
 
 Thread3 -> Monitor2: Acquire
-activate Monitor2
 Thread3 -> Thread3: Activity 4-6
 activate Thread3
 deactivate Thread3
-deactivate Monitor2
+Thread2 -> latch: countDown
+
+Thread3 -> latch: countDown
+
 
 
 Thread1 -> Thread1: Wait for Thread2
@@ -35,5 +39,6 @@ deactivate Thread2
 Thread1 -> Thread1: Wait for Thread3
 deactivate Thread3
 deactivate Thread1
+
 
 @enduml
