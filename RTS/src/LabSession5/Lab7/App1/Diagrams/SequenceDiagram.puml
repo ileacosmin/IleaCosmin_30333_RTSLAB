@@ -58,6 +58,10 @@ loop forever
     activate Thread2
     deactivate Thread2
 
+    Thread1 -> Barrier : await()
+    deactivate Thread1
+    Thread2 -> Barrier : await()
+    deactivate Thread2
     Main -> Barrier : await()
     Main -> Barrier : reset()
     deactivate Barrier
