@@ -20,7 +20,7 @@ public class TrafficLightController implements Runnable {
             while (true) {
                 int cars = carQueue.getCarCount();
                 if (cars >= 2) {
-                    int permits = Math.min(cars, 10);
+                    int permits = Math.min(cars, 10); // Limit to 10 cars
                     semaphore.acquire(permits);
                     System.out.println(direction + " light green for " + permits + " seconds. Releasing " + permits + " cars.");
                     Thread.sleep(permits * 1000); // Simulate cars passing
