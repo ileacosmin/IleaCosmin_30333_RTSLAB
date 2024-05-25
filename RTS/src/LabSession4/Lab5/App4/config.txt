@@ -1,0 +1,5 @@
+# Car generation rates (cars per second)
+NORTH=2
+SOUTH=3
+EAST=2
+WEST=3
