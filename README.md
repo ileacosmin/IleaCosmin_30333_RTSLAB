@@ -1,4 +1,2 @@
-## Markings
-- Lab 1 marked
-- Lab 2 marked + Optional App3
-- Lab 3 marked 
+# Here you can find a readme with all the marking
+[Readme](https://github.com/ileacosmin/IleaCosmin_30333_RTSLAB/tree/main/RTS#readme)
