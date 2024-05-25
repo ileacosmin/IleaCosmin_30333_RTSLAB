@@ -1,4 +1,4 @@
-package LabSession6.GalvanizingLine;
+package LabSession6.GalvanizingLine_SimpleOERTPN;
 
 public class Robot extends Thread {
 

@@ -1,4 +1,4 @@
-package LabSession6.GalvanizingLine.Interfaces;
+package LabSession6.GalvanizingLine_SimpleOERTPN.Interfaces;
 
 public interface PlaceHandlerTemplate {
 	public void AddPlace(PlaceTemplate place);

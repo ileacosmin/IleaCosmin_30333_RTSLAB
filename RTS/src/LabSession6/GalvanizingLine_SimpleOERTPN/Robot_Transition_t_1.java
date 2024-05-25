@@ -1,22 +1,22 @@
-package LabSession6.GalvanizingLine;
+package LabSession6.GalvanizingLine_SimpleOERTPN;
 
 
-import LabSession6.GalvanizingLine.Interfaces.PlaceHandlerTemplate;
-import LabSession6.GalvanizingLine.Interfaces.TransitionTemplate;
+import LabSession6.GalvanizingLine_SimpleOERTPN.Interfaces.PlaceHandlerTemplate;
+import LabSession6.GalvanizingLine_SimpleOERTPN.Interfaces.TransitionTemplate;
 
-public class Controller_Transition_t_2 implements TransitionTemplate {
+public class Robot_Transition_t_1 implements TransitionTemplate {
 	Integer timeUnitControl = 500;
 	Integer eet;
 	Integer let;
 	String Name;
 	PlaceHandlerTemplate PH;
 
-	public Controller_Transition_t_2(String name, PlaceHandlerTemplate PH, Integer delay) {
+	public Robot_Transition_t_1(String name, PlaceHandlerTemplate PH, Integer delay) {
 		this.Init(name, PH);
 		this.SetDelay(delay);
 	}
 
-	public Controller_Transition_t_2(String name, PlaceHandlerTemplate PH, Integer eet, Integer let) {
+	public Robot_Transition_t_1(String name, PlaceHandlerTemplate PH, Integer eet, Integer let) {
 		this.Init(name, PH);
 		this.SetDelayInRange(eet, let);
 	}
@@ -38,16 +38,19 @@ public class Controller_Transition_t_2 implements TransitionTemplate {
 	@Override
 	public Boolean TransitionGuardsMappings() {
 		TransitionDelay();
-		String toPrint="--------------Controller--------------\n";
-		if ( !PH.GetPlaceByName("p_i2").IsNull()) {
+		String toPrint="--------------Robot-------------------\n";
+		
+		if (!PH.GetPlaceByName("p_i").IsNull() && !PH.GetPlaceByName("p_0").IsNull()) {
 			toPrint = toPrint.concat(Print() + "\n");
-			
-			PH.GetPlaceByName("p_1").Set(PH.GetPlaceByName("p_i2").Get());
-			PH.GetPlaceByName("p_o1").Set(PH.GetPlaceByName("p_i2").Get());
-			PH.GetPlaceByName("p_i2").Set(null);
-			
+
+			PH.GetPlaceByName("p_1")
+					.Set((Integer) PH.GetPlaceByName("p_i").Get() + (Integer) PH.GetPlaceByName("p_0").Get());
+			PH.GetPlaceByName("p_i").Set(null);
+			PH.GetPlaceByName("p_0").Set(null);
+
 			toPrint = toPrint.concat(Print() + "\n");
 			toPrint = toPrint.concat("--------------------------------------\n");
+
 			System.out.println(toPrint);
 			return true;
 		}

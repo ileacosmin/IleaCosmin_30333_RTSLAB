@@ -1,4 +1,4 @@
-package LabSession6.GalvanizingLine.SemaphoreRobot;
+package LabSession6.GalvanizingLine_SimpleOERTPN.SemaphoreRobot;
 
 import java.util.Scanner;
 

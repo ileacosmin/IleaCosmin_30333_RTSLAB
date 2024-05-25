@@ -1,7 +1,7 @@
-package LabSession6.GalvanizingLine;
+package LabSession6.GalvanizingLine_SimpleOERTPN;
 
 
-import LabSession6.GalvanizingLine.Interfaces.PlaceTemplate;
+import LabSession6.GalvanizingLine_SimpleOERTPN.Interfaces.PlaceTemplate;
 
 public class IntPlace implements PlaceTemplate {
 	Integer value;
