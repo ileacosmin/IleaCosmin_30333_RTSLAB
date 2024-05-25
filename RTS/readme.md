@@ -48,7 +48,9 @@
 
 [Lab4App2RedundantLock](src%2FLabSession4%2FLab5%2FLab4App2RedundantLock) - <span style="color:red">to be marked</span>
 
-[App4](src%2FLabSession4%2FLab7%2FApp4) - <span style="color:red">to be marked</span>
+[Lab7App4](src%2FLabSession4%2FLab7%2FApp4) - <span style="color:red">to be marked</span>
+
+[Lab5App4](src%2FLabSession4%2FLab5%2FApp4) - <span style="color:red">to be marked </span> **optional**
 
 # Lab session 5 - Lab 7
 
