@@ -64,5 +64,9 @@ App5PetriNet - <span style="color:red">to be marked</span>
 
 ![App5PetriNet.PNG](src%2FLabSession5%2FLab7%2FApp5PetriNet.PNG)
 
-# Lab session 6
+# Lab session 6 - Lab 8
+
+[Ex 1 - SimpleOERTPN](RTS/src/LabSession6/GalvanizingLine_SimpleOERTPN) - <span style="color:red">to be marked</span>
+
+[Ex1 - OERTPN Framework](https://github.com/ileacosmin/IleaCosmin_30333_RTSLAB/tree/main/OETPNFramework)  - <span style="color:red">to be marked</span>
 
