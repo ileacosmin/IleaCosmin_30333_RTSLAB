@@ -4,6 +4,7 @@ package LabSession6.GalvanizingLine_SimpleOERTPN;
 import LabSession6.GalvanizingLine_SimpleOERTPN.Interfaces.PlaceHandlerTemplate;
 import LabSession6.GalvanizingLine_SimpleOERTPN.Interfaces.TransitionTemplate;
 
+
 public class Robot_Transition_t_2 implements TransitionTemplate {
 	Integer timeUnitControl = 500;
 	Integer eet;

@@ -10,7 +10,7 @@ public class Controller_Transition_t_2 implements TransitionTemplate {
 	Integer let;
 	String Name;
 	PlaceHandlerTemplate PH;
-
+	PlaceHandlerTemplate SupervisorPH;
 	public Controller_Transition_t_2(String name, PlaceHandlerTemplate PH, Integer delay) {
 		this.Init(name, PH);
 		this.SetDelay(delay);

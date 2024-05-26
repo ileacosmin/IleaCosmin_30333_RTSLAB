@@ -36,8 +36,9 @@ public class Controller {
 		p_2.SetName("p_2");
 		pn.PlaceList.add(p_2);
 
-		DataInteger p_o1 = new DataInteger();
+		DataTransfer p_o1 = new DataTransfer();
 		p_o1.SetName("p_o1");
+		p_o1.Value = new TransferOperation("localhost", "1082", "ps_i2");
 		pn.PlaceList.add(p_o1);
 
 		DataTransfer p_o2 = new DataTransfer();

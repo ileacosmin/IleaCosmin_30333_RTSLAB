@@ -4,9 +4,9 @@ package LabSession6.GalvanizingLine_SimpleOERTPN;
 import java.util.Scanner;
 
 public class Controller extends Thread {
-
 	boolean stop = false;
 	public Robot r;
+	public Supervisor s;
 	PlaceHandler PH = new PlaceHandler();
 
 	Controller_Transition_t_1 t_1;
@@ -27,8 +27,9 @@ public class Controller extends Thread {
 		t_o2 = new Controller_Transition_t_o2("t_o2", PH, 0);
 		t_o2.RobotPH = r.PH;// this transition has an output channel connected to the robot
 
-		System.out.println("Controller: Input p_i1 value");
-		this.PH.GetPlaceByName("p_i1").Set(Integer.parseInt(in.nextLine()));
+
+		t_2.SupervisorPH=s.PH;
+
 
 		while (!stop) {
 
@@ -37,7 +38,7 @@ public class Controller extends Thread {
 			t_2.TransitionGuardsMappings();
 
 			t_o2.TransitionGuardsMappings();
-			
+
 			// For slower printing on the console
 			try {
 				Thread.sleep(1000);
@@ -52,5 +53,4 @@ public class Controller extends Thread {
 	public void StopThread() {
 		this.stop = true;
 	}
-
 }
