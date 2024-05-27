@@ -14,22 +14,22 @@ loop forever
     Thread1 -> Thread1 : Activity for 2-4
     activate Thread1
     deactivate Thread1
-    Thread1 -> Lock1 : Acquire
-    activate Lock1
+    Thread1 -> p9 : tryAquire(1)
+    activate p9
     Thread1 -> Thread1 : Activity for 4-6
     activate Thread1
     deactivate Thread1
-    Thread1 -> Lock2 : TryLock()
-    alt lock2 acquired
-        activate Lock2
+    Thread1 -> p10 : tryAquire(1)
+    alt p10 acquired
+        activate p10
     end
     Thread1 -> Thread1 : Sleep for 4 seconds
     activate Thread1
     deactivate Thread1
-    Thread1 <-- Lock1 : Release
-    deactivate Lock1
-    Thread1 <-- Lock2 : Release
-    deactivate Lock2
+    Thread1 <-- p9 : Release(1)
+    deactivate p9
+    Thread1 <-- p10 : Release(1)
+    deactivate p10
     Thread1 -> Thread1 : Wait for Thread2
     activate Thread1
     deactivate Thread1
@@ -37,23 +37,23 @@ loop forever
     Thread2 -> Thread2 : Activity for 3-5
     activate Thread2
     deactivate Thread2
-    Thread2 -> Lock2 : Acquire
-    activate Lock2
+    Thread2 -> p10 : tryAquire(1)
+    activate p10
     Thread2 -> Thread2 : Activity for 5-7
     activate Thread2
     deactivate Thread2
-    Thread2 -> Lock1 : TryLock()
-    alt lock1 acquired
-        activate Lock1
+    Thread2 -> p9 : tryAquire(1)
+    alt p9 acquired
+        activate p9
     end
-    activate Lock1
+    activate p9
     Thread2 -> Thread2 : Sleep for 5 seconds
     activate Thread2
     deactivate Thread2
-    Thread2 <-- Lock2 : Release
-    deactivate Lock2
-    Thread2 <-- Lock1 : Release
-    deactivate Lock1
+    Thread2 <-- p10 : Release(1)
+    deactivate p10
+    Thread2 <-- p9 : Release(1)
+    deactivate p9
     Thread2 -> Thread2 : Wait for Thread1
     activate Thread2
     deactivate Thread2

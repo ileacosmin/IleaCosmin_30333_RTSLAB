@@ -3,11 +3,12 @@ package LabSession5.Lab7.App1;
 
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Lock;
 
 public class ExecutionThread extends Thread {
 
-    Lock p9, p10;
+    Semaphore p9, p10;
 
     CyclicBarrier barrier;
 
@@ -15,7 +16,7 @@ public class ExecutionThread extends Thread {
     int sleep_time, activity_min1, activity_max1, activity_min2, activity_max2;
 
     // constructor
-    public ExecutionThread(String name, int sleep_time, int activity_min1, int activity_max1, int activity_min2, int activity_max2, Lock p9, Lock p10, CyclicBarrier barrier) {
+    public ExecutionThread(String name, int sleep_time, int activity_min1, int activity_max1, int activity_min2, int activity_max2, Semaphore p9, Semaphore p10, CyclicBarrier barrier) {
         super(name);
         this.sleep_time = sleep_time;
         this.activity_min1 = activity_min1;
@@ -34,7 +35,7 @@ public class ExecutionThread extends Thread {
                 i++;
                 i--;
             }
-            if (p9.tryLock()) {
+            if (p9.tryAcquire(1)) {
                 try {
                     System.out.println(this.getName() + " - STATE 2");
                     k = (int) Math.round(Math.random() * (activity_max2 - activity_min2) + activity_min2);
@@ -43,7 +44,7 @@ public class ExecutionThread extends Thread {
                         i--;
                     }
 
-                    if (p10.tryLock()) {
+                    if (p10.tryAcquire(1)) {
                         try {
                             System.out.println(this.getName() + " - STATE 3");
                             Thread.sleep(sleep_time * 1000);
@@ -51,13 +52,13 @@ public class ExecutionThread extends Thread {
                         } catch (Exception e) {
                             e.printStackTrace();
                         } finally {
-                            p10.unlock();
+                            p10.release(1);
                         }
                     }
                 } catch (Exception e) {
                     e.printStackTrace();
                 } finally {
-                    p9.unlock();
+                    p9.release(1);
                 }
 
             }

@@ -1,12 +1,13 @@
 package LabSession5.Lab7.App1;
 
 import java.util.concurrent.CyclicBarrier;
+import java.util.concurrent.Semaphore;
 import java.util.concurrent.locks.Lock;
 
 public class Main {
     public static void main(String[] args) {
-        Lock p9 = new java.util.concurrent.locks.ReentrantLock();
-        Lock p10 = new java.util.concurrent.locks.ReentrantLock();
+        Semaphore p9 = new Semaphore(1);
+        Semaphore p10 = new Semaphore(1);
 
 
       CyclicBarrier barrier = new CyclicBarrier(3, new Runnable() {
