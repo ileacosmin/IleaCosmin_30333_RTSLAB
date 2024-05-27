@@ -101,6 +101,7 @@ public class Supervisor {
         ts2Output.add("ps_o1");
         ts2Output.add("ps_3");
         ts2Output.add("ps_1");
+        // aici ps_1 trmite la ps_o1 care are declarat portu si face send over network
         grdTS2.Activations.add((new Activation(ts_2, "ps_1", TransitionOperation.SendROverNetwork, "ps_o1")));
         grdTS2.Activations.add(new Activation(ts_2,"ps_1", TransitionOperation.PopElement_R_E,  ts2Output));
 
