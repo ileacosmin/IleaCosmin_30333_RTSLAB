@@ -8,50 +8,50 @@ loop forever
     == Thread 1 ==
     Main -> Thread1 : start()
     activate Thread1
-    Thread1 -> Monitor1: acquire
-    activate Monitor1
+    Thread1 -> p9: acquire
+    activate p9
     Thread1 -> Thread1: Activity 2-4
     activate Thread1
     deactivate Thread1
     Thread1 -> Thread1: Sleep 4
     activate Thread1
     deactivate Thread1
-    Thread1 <-- Monitor1: release
-    deactivate Monitor1
+    Thread1 <-- p9: release
+    deactivate p9
     deactivate Thread1
 
     == Thread 2 ==
     Main -> Thread2 : start()
     activate Thread2
-    Thread2 -> Monitor1: acquire
-    activate Monitor1
-    Thread2 -> Monitor2: acquire
-    activate Monitor2
+    Thread2 -> p9: acquire
+    activate p9
+    Thread2 -> p10: acquire
+    activate p10
     Thread2 -> Thread2: Activity 3-6
     activate Thread2
     deactivate Thread2
     Thread2 -> Thread2: Sleep 3
     activate Thread2
     deactivate Thread2
-    Thread2 <-- Monitor1: release
-    deactivate Monitor1
-    Thread2 <-- Monitor2: release
-    deactivate Monitor2
+    Thread2 <-- p9: release
+    deactivate p9
+    Thread2 <-- p10: release
+    deactivate p10
     deactivate Thread2
 
     == Thread 3 ==
     Main -> Thread3 : start()
     activate Thread3
-    Thread3 -> Monitor2: acquire
-    activate Monitor2
+    Thread3 -> p10: acquire
+    activate p10
     Thread3 -> Thread3: Activity 2-5
     activate Thread3
     deactivate Thread3
     Thread3 -> Thread3: Sleep 5
     activate Thread3
     deactivate Thread3
-    Thread3 <-- Monitor2: release
-    deactivate Monitor2
+    Thread3 <-- p10: release
+    deactivate p10
     deactivate Thread3
 
     latch -> Main : await()
