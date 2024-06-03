@@ -22,6 +22,19 @@ import java.util.ArrayList;
 public class Supervisor {
     public static void main(String[] args) {
 
+        // declar petri net
+        // port
+        // declar Places si tipu lor si le adaug la petrinet
+        // declar tranzitii
+        // adaug intrari
+        // declar conditii pentru tranzitii
+        // declar guard mapping
+        // guard mapping. condition. add  conditii pt tranzitii
+        // guard mapping. activari. add  activari pt tranzitii
+        // adaug tranzitia la petrinet
+        // frame.petriNet  = pn;
+        // frame.setVisible(true);
+
         PetriNet pn = new PetriNet();
         pn.PetriNetName = "Supervisor Petri";
         pn.NetworkPort = 1082;
