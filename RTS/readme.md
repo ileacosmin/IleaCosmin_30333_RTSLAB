@@ -40,33 +40,33 @@
 
 [App4](src%2FLabSession3%2FLab4%2FApp4) - <span style="color:green">marked</span>
 
-[Example1](src%2FLabSession3%2FLab4%2FExample1) - code <span style="color:green">marked</span>, diagrams still to be <span style="color:red">marked</span>
+[Example1](src%2FLabSession3%2FLab4%2FExample1) - <span style="color:green">marked
 
 # Lab session 4 - Lab 5 and 7
 
-[App2](src%2FLabSession4%2FLab5%2FApp2) - <span style="color:red">to be marked</span>
+[App2](src%2FLabSession4%2FLab5%2FApp2) - <span style="color:green"> marked</span>
 
-[Lab4App2RedundantLock](src%2FLabSession4%2FLab5%2FLab4App2RedundantLock) - <span style="color:red">to be marked</span>
+[Lab4App2RedundantLock](src%2FLabSession4%2FLab5%2FLab4App2RedundantLock) - <span style="color:green"> marked</span>
 
-[Lab7App4](src%2FLabSession4%2FLab7%2FApp4) - <span style="color:red">to be marked</span>
+[Lab7App4](src%2FLabSession4%2FLab7%2FApp4) - <span style="color:green"> marked</span>
 
-[Lab5App4](src%2FLabSession4%2FLab5%2FApp4) - <span style="color:red">to be marked </span> **optional**
+[Lab5App4](src%2FLabSession4%2FLab5%2FApp4) - <span style="color:green"> marked</span> **optional**
 
 # Lab session 5 - Lab 7
 
-[App1](src%2FLabSession5%2FLab7%2FApp1) - <span style="color:red">to be marked</span>
+[App1](src%2FLabSession5%2FLab7%2FApp1) -<span style="color:green"> marked</span>
 
-[App2](src%2FLabSession5%2FLab7%2FApp2) - <span style="color:red">to be marked</span>
+[App2](src%2FLabSession5%2FLab7%2FApp2) - <span style="color:green"> marked</span>
 
-[App3](src%2FLabSession5%2FLab7%2FApp3) - <span style="color:red">to be marked</span>
+[App3](src%2FLabSession5%2FLab7%2FApp3) - <span style="color:green"> marked</span>
 
-App5PetriNet - <span style="color:red">to be marked</span>
+App5PetriNet - <span style="color:green"> marked</span>
 
 ![App5PetriNet.PNG](src%2FLabSession5%2FLab7%2FApp5PetriNet.PNG)
 
 # Lab session 6 - Lab 8
 
-[Ex 1 - SimpleOERTPN](src/LabSession6/GalvanizingLine_SimpleOERTPN) - <span style="color:red">to be marked</span>
+[Ex 1 - SimpleOERTPN](src/LabSession6/GalvanizingLine_SimpleOERTPN) - <span style="color:green"> marked</span>
 
-[Ex1 - OERTPN Framework](https://github.com/ileacosmin/IleaCosmin_30333_RTSLAB/tree/main/OETPNFramework)  - <span style="color:red">to be marked</span>
+[Ex1 - OERTPN Framework](https://github.com/ileacosmin/IleaCosmin_30333_RTSLAB/tree/main/OETPNFramework)  - <span style="color:green"> marked</span>
 
